@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -32,13 +33,15 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
   public List<String> tokenize(Scanner scanner) {
 
     String str = scanner.nextLine();
-    String[] myList = str.split(" ");
+    String[] words = str.split(" ");
+    List<String> myList = new ArrayList<>();
 
-    // Converting using array to list using Arrays.asList()
-    // found it on geeksforgeeks website
-    List<String> list = Arrays.asList(myList);
-
-    return list;
+	  for(String word: words){
+    	  if(!word.isEmpty()){
+        	myList.add(word);
+    	}
+    }
+    return myList;
   }
 }
 
