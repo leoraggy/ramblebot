@@ -38,11 +38,27 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
     List<String> myList = new ArrayList<>();
 
 	  for(String word: words){
-    	  if(!word.isEmpty()){
+       if(word.contains(".")){
+          int len = word.length();
+          String lastLetter = word.substring(len-1);
+          // This checks to see if the last letter is a . if it is then you separate the word from period
+          // if its not a period, that means its a word like Dr.Smith, and so you wouldnt want to separate.
+          if(lastLetter.equals(".")){
+          myList.add(word.substring(0, len-1));
+          myList.add(lastLetter);
+          }else{
+            myList.add(word);
+          }
+        }else if(!word.isEmpty()){
         	myList.add(word);
-    	}
+    	  }
+       
     }
     return myList;
   }
 }
+
+// b a n a n a .
+// 0 1 2 3 4 5 6
+// length = 7
 
