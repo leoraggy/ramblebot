@@ -33,6 +33,7 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
   public List<String> tokenize(Scanner scanner) {
 
     String str = scanner.nextLine();
+    str = str.toLowerCase();
     String[] words = str.split(" ");
     List<String> myList = new ArrayList<>();
 
