@@ -32,12 +32,10 @@ public class LowercaseSentenceTokenizer implements Tokenizer {
    */
   public List<String> tokenize(Scanner scanner) {
 
-    String str = scanner.nextLine();
-    str = str.toLowerCase();
-    String[] words = str.split(" ");
     List<String> myList = new ArrayList<>();
+	  while(scanner.hasNext()){
+      String word = scanner.next().toLowerCase();
 
-	  for(String word: words){
        if(word.contains(".")){
           int len = word.length();
           String lastLetter = word.substring(len-1);
